@@ -35,6 +35,9 @@ function formatNumber(num) {
 }
 
 function formatTime(seconds) {
+    if(!seconds){
+        return _txt("time_controls>seconds");
+    }
     if (seconds > 300) {
         let second = Math.floor(seconds%60);
         let minute = Math.floor(seconds/60%60);
