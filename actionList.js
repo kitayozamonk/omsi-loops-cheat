@@ -4776,6 +4776,7 @@ Action.SeekBlessing = new Action("Seek Blessing", {
     skills: {
         Divine() {
 		return Math.floor(50 * getFrostGiantsRank().bonus);
+        }
     },
     canStart() {
         return resources.pegasus;
@@ -5215,8 +5216,6 @@ Action.FightJungleMonsters = new MultipartAction("Fight Jungle Monsters", {
     },
     loopsFinished() {
         handleSkillExp(this.skills);
-    },
-    segmentFinished() {
     },
     segmentFinished() {
         curFightJungleMonstersSegment++;
