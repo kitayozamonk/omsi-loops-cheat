@@ -250,6 +250,7 @@ const curDate = new Date();
 let totalOfflineMs = 0;
 // eslint-disable-next-line prefer-const
 let bonusSpeed = 1;
+let cheatBonusSpeed = 1;
 const offlineRatio = 1;
 let totals = {
     time: 0,
@@ -292,16 +293,22 @@ const options = {
     autoMaxTraining: false,
     hotkeys: true,
     updateRate: 50,
+    cheat_speed: 1,
     autosaveRate: 30,
 };
 
 function setOption(option, value) {
     options[option] = value;
     if (option === "updateRate") recalcInterval(options.updateRate);
+    if (option === "cheat_speed") cheatBonusSpeed = options.cheat_speed;
 }
 
 function loadOption(option, value) {
     if (option === "updateRate") document.getElementById(`${option}Input`).value = value;
+    if (option === "cheat_speed") {
+        document.getElementById(`${option}Input`).value = value;
+        cheatBonusSpeed = options.cheat_speed;
+    }
     if (option === "autosaveRate") document.getElementById(`${option}Input`).value = value;
     else document.getElementById(`${option}Input`).checked = value;
 }
@@ -554,6 +561,7 @@ function load(inChallenge) {
         options.highlightNew = toLoad.highlightNew === undefined ? options.highlightNew : toLoad.highlightNew;
         options.hotkeys = toLoad.hotkeys === undefined ? options.hotkeys : toLoad.hotkeys;
         options.updateRate = toLoad.updateRate === undefined ? options.updateRate : toLoad.updateRate;
+        options.cheat_speed = toLoad.cheat_speed === undefined ? 1 : toLoad.cheat_speed;
     } else {
         for (const option in toLoad.options) {
             options[option] = toLoad.options[option];

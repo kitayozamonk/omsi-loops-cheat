@@ -110,6 +110,10 @@ Views.registerView("menu", {
                 <br>
                 ${_txt("menu>options>autosave_rate")}
                 <input id='autosaveRateInput' type='number' value='30' min='1' style='width: 50px;transform: translateY(-2px);' oninput='setOption("autosaveRate", parseInt(this.value))' />
+                <br>                
+                <br>
+                ${_txt("menu>options>cheat_speed_label")}
+                <input id='cheat_speedInput' type='number' value='1' min='1' style='width: 50px;transform: translateY(-2px);' oninput='setOption("cheat_speed", parseInt(this.value))' />
                 <br>
             </div>
         </div>`;

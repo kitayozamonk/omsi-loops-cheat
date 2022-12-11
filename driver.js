@@ -37,7 +37,7 @@ function getSpeedMult(zone = curTown) {
 }
 
 function getActualGameSpeed() {
-    return gameSpeed * getSpeedMult() * bonusSpeed;
+    return gameSpeed * getSpeedMult() * bonusSpeed * cheatBonusSpeed;
 }
 
 function tick() {
